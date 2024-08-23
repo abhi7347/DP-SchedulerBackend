@@ -1,0 +1,16 @@
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPScheduler.BAL.csproj.AssemblyReference.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPScheduler.BAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPScheduler.BAL.AssemblyInfoInputs.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPScheduler.BAL.AssemblyInfo.cs
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPScheduler.BAL.csproj.CoreCompileInputs.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\bin\Debug\net8.0\DPScheduler.BAL.deps.json
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\bin\Debug\net8.0\DPScheduler.BAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\bin\Debug\net8.0\DPScheduler.BAL.pdb
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\bin\Debug\net8.0\DPScheduler.DAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\bin\Debug\net8.0\DPScheduler.DAL.pdb
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPSchedu.34BEA62F.Up2Date
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPScheduler.BAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\refint\DPScheduler.BAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPScheduler.BAL.pdb
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\ref\DPScheduler.BAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.BAL\obj\Debug\net8.0\DPScheduler.BAL.sourcelink.json

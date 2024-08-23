@@ -1,0 +1,11 @@
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\bin\Debug\net8.0\ClassLibrary1.deps.json
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\bin\Debug\net8.0\ClassLibrary1.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\bin\Debug\net8.0\ClassLibrary1.pdb
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\obj\Debug\net8.0\ClassLibrary1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\obj\Debug\net8.0\ClassLibrary1.AssemblyInfoInputs.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\obj\Debug\net8.0\ClassLibrary1.AssemblyInfo.cs
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\obj\Debug\net8.0\ClassLibrary1.csproj.CoreCompileInputs.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\obj\Debug\net8.0\ClassLibrary1.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\obj\Debug\net8.0\refint\ClassLibrary1.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\obj\Debug\net8.0\ClassLibrary1.pdb
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\ClassLibrary1\obj\Debug\net8.0\ref\ClassLibrary1.dll

@@ -1,0 +1,6 @@
+@DPscheduler.Presentation_HostAddress = http://localhost:5212
+
+GET {{DPscheduler.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

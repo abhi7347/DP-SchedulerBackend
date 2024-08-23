@@ -1,0 +1,13 @@
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\DPScheduler.DAL.csproj.AssemblyReference.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\DPScheduler.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\DPScheduler.DAL.AssemblyInfoInputs.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\DPScheduler.DAL.AssemblyInfo.cs
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\DPScheduler.DAL.csproj.CoreCompileInputs.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\bin\Debug\net8.0\DPScheduler.DAL.deps.json
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\bin\Debug\net8.0\DPScheduler.DAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\bin\Debug\net8.0\DPScheduler.DAL.pdb
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\DPScheduler.DAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\refint\DPScheduler.DAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\DPScheduler.DAL.pdb
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\ref\DPScheduler.DAL.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.DAL\obj\Debug\net8.0\DPScheduler.DAL.sourcelink.json

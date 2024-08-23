@@ -1,0 +1,5 @@
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.Shared\obj\Debug\net8.0\DPScheduler.Shared.csproj.AssemblyReference.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.Shared\obj\Debug\net8.0\DPScheduler.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.Shared\obj\Debug\net8.0\DPScheduler.Shared.AssemblyInfoInputs.cache
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.Shared\obj\Debug\net8.0\DPScheduler.Shared.AssemblyInfo.cs
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPScheduler.Shared\obj\Debug\net8.0\DPScheduler.Shared.csproj.CoreCompileInputs.cache
