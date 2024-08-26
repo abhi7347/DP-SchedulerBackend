@@ -2,6 +2,7 @@
 using DPScheduler.DAL.DTOs;
 using DPScheduler.DAL.Interface;
 using DPScheduler.DAL.Model;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,9 +29,8 @@ namespace DPScheduler.DAL.Implementation
             try
             {
                 const string sql = @"
-            INSERT INTO DP_Appointments (ProviderId, EventId, EventName, EventDate, StartTime, EndTime, Color, CreatedAt, ModifiedAt)
-            VALUES (@ProviderId, @EventId, @EventName, @EventDate, @StartTime, @EndTime, @Color, @CreatedAt, @ModifiedAt)";
-
+            INSERT INTO DP_Appointments (ProviderId, EventId, EventName, AppointmentDate, StartTime, EndTime, Color, CreatedAt, ModifiedAt)
+            VALUES (@ProviderId, @EventId, @EventName, @AppointmentDate, @StartTime, @EndTime, @Color, @CreatedAt, @ModifiedAt)";
 
                 using (var connection = _context.CreateConnection())
                 {
@@ -39,7 +39,7 @@ namespace DPScheduler.DAL.Implementation
                         ProviderId = EventModel.ProviderId,
                         EventId = EventModel.EventId,
                         EventName = EventModel.EventName,
-                        EventDate = EventModel.EventDate,
+                        AppointmentDate = EventModel.EventDate,
                         StartTime = EventModel.StartTime,
                         EndTime = EventModel.EndTime,
                         Color = EventModel.BarColor,
@@ -61,7 +61,7 @@ namespace DPScheduler.DAL.Implementation
         public async Task DeleteEvent(string eventId)
         {
             const string checkSql = "SELECT COUNT(1) FROM DP_Appointments WHERE EventId = @EventId";
-            const string deleteSql = "DELETE FROM DP_Appointments WHERE EventId = @EventId";
+            const string deleteSql = "UPDATE DP_Appointments SET IsDeleted = 1 WHERE EventId = @EventId";
 
             using (var connection = _context.CreateConnection())
             {
@@ -88,44 +88,79 @@ namespace DPScheduler.DAL.Implementation
             const string checkSql = "SELECT COUNT(1) FROM DP_Appointments WHERE EventId = @EventId";
 
             const string sql = @"
-            UPDATE DP_Appointments
-            SET ProviderId = @ProviderId,
-                EventName = @EventName,
-                EventDate = @EventDate,
-                StartTime = @StartTime,
-                EndTime = @EndTime,
-                Color = @Color,
-                ModifiedAt = @ModifiedAt
-                WHERE EventId = @EventId";
+                                UPDATE DP_Appointments
+                                SET ProviderId = @ProviderId,
+                                    EventName = @EventName,
+                                    AppointmentDate = @AppointmentDate,
+                                    StartTime = @StartTime,
+                                    EndTime = @EndTime,
+                                    Color = @Color,
+                                    ModifiedAt = @ModifiedAt
+                                WHERE EventId = @EventId";
 
-            using (var connection = _context.CreateConnection())
+            try
             {
-
-                // Check if the record exists
-                var exists = await connection.ExecuteScalarAsync<bool>(checkSql, new { EventId = eventModel.EventId });
-
-                if (!exists)
+                using (var connection = _context.CreateConnection())
                 {
-                    // Record does not exist, throw an exception or handle as needed
-                    throw new InvalidOperationException($"Event with ID {eventModel.EventId} does not exist.");
-                }
-                else
-                {
-                    await connection.ExecuteAsync(sql, new
+                    // Check if the record exists
+                    var exists = await connection.ExecuteScalarAsync<bool>(checkSql, new { EventId = eventModel.EventId });
+
+                    if (!exists)
                     {
-                        ProviderId = eventModel.ProviderId,
-                        EventId = eventModel.EventId,
-                        EventName = eventModel.EventName,
-                        EventDate = eventModel.EventDate,
-                        StartTime = eventModel.StartTime,
-                        EndTime = eventModel.EndTime,
-                        Color = eventModel.BarColor,
-                        ModifiedAt = DateTime.Now
-                    });
+                        // Record does not exist, throw an exception or handle as needed
+                        throw new InvalidOperationException($"Event with ID {eventModel.EventId} does not exist.");
+                    }
+                    else
+                    {
+                        await connection.ExecuteAsync(sql, new
+                        {
+                            ProviderId = eventModel.ProviderId,
+                            EventId = eventModel.EventId,
+                            EventName = eventModel.EventName,
+                            AppointmentDate = eventModel.EventDate,
+                            StartTime = eventModel.StartTime,
+                            EndTime = eventModel.EndTime,
+                            Color = eventModel.BarColor,
+                            ModifiedAt = DateTime.Now
+                        });
+                    }
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+               
+                throw new Exception("An error occurred while updating the event in the database.", sqlEx);
+            }
+            catch (Exception ex)
+            {
                 
+                throw new Exception("An unexpected error occurred while updating the event.", ex);
             }
         }
+
+
+
+        // Get Only Booked Appointment
+        public async Task<IEnumerable<dynamic>> GetBookedAppointments(DateTime selectedDate, IEnumerable<int> LocationIds)
+        {
+            string query = "USP_GetBookedAppointments";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@selectedDate", selectedDate);
+            parameters.Add("@LocationIds", string.Join(",", LocationIds));
+
+            try
+            {
+                using (var connection = _context.CreateConnection())
+                {
+                    return await connection.QueryAsync<dynamic>(query, parameters, commandType: CommandType.StoredProcedure);
+
+                }
+            }
+
+            catch (Exception ex) { throw; }
+        }
+
 
 
     }

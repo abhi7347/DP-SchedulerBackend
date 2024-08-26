@@ -12,7 +12,6 @@ namespace DPScheduler.BAL.Interface
         public Task<IEnumerable> GetAllLocations();
         public Task<IEnumerable> GetProvidersByLocations(string dayOfWeek, IEnumerable<int> locationIds);
         public Task<IEnumerable> ProvidersByToggelLocations(string dayOfWeek);
-        public Task<IEnumerable> GetBookedAppointments(DateTime selectedDate, IEnumerable<int> LocationIds);
 
     }
 }

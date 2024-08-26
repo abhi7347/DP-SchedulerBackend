@@ -64,30 +64,7 @@ namespace DPscheduler.Presentation.Controllers
             }
         }
 
-        [HttpGet("bookedAppointments")]
-        public async Task<IActionResult> GetBookedAppointments([FromQuery] DateTime selectedDate, [FromQuery] IEnumerable<int> LocationIds)
-        {
-            try
-            {
-                if (selectedDate == default(DateTime) || LocationIds == null || !LocationIds.Any())
-                {
-                    return BadRequest("Invalid request parameters.");
-                }
-
-                var bookedAppointments = await _service.GetBookedAppointments(selectedDate, LocationIds);
-
-                if (bookedAppointments == null)
-                {
-                    return NotFound("No appointments found.");
-                }
-
-                return Ok(bookedAppointments);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "An error occurred while processing your request.");
-            }
-        }
+        
 
 
 

@@ -1,7 +1,9 @@
 ﻿using DPScheduler.BAL.Interface;
 using DPScheduler.DAL.DTOs;
+using DPScheduler.DAL.Implementation;
 using DPScheduler.DAL.Interface;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +36,12 @@ namespace DPScheduler.BAL.Implementation
         public async Task UpdateEvent(EventDTO EventModel)
         {
             await _eventOpsRepo.UpdateEvent(EventModel);
+        }
+
+        // Get Booked Appointments
+        public async Task<IEnumerable> GetBookedAppointments(DateTime selectedDate, IEnumerable<int> LocationIds)
+        {
+            return await _eventOpsRepo.GetBookedAppointments(selectedDate, LocationIds);
         }
     }
 }

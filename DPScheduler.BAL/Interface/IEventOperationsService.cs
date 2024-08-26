@@ -1,5 +1,6 @@
 ﻿using DPScheduler.DAL.DTOs;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,7 @@ namespace DPScheduler.BAL.Interface
         public Task CreateEvent(EventDTO EventModel);
         public Task DeleteEvent(string EventModel);
         public Task UpdateEvent(EventDTO EventModel);
+        public Task<IEnumerable> GetBookedAppointments(DateTime selectedDate, IEnumerable<int> LocationIds);
+
     }
 }

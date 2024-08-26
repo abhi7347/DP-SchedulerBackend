@@ -33,11 +33,5 @@ namespace DPScheduler.BAL.Implementation
             return await _repository.ProvidersByToggelLocations(dayOfWeek);
         }
 
-        public async Task<IEnumerable> GetBookedAppointments(DateTime selectedDate, IEnumerable<int> LocationIds)
-        {
-            return await _repository.GetBookedAppointments(selectedDate, LocationIds);
-        }
-
-
     }
 }

@@ -77,27 +77,7 @@ namespace DPScheduler.DAL.Implementation
                 
         }
 
-        // Get Only Booked Appointment
-        public async Task<IEnumerable<dynamic>> GetBookedAppointments(DateTime selectedDate, IEnumerable<int> LocationIds)
-        {
-            string query  = "USP_GetBookedAppointments";
-
-            var parameters = new DynamicParameters();
-            parameters.Add("@selectedDate", selectedDate);
-            parameters.Add("@LocationIds", string.Join(",", LocationIds));
-
-            try
-            {
-                using (var connection = _context.CreateConnection())
-                {
-                    return await connection.QueryAsync<dynamic>(query, parameters, commandType: CommandType.StoredProcedure);
-
-                }
-            }
-
-            catch (Exception ex) { throw; }
-        }
-
+        
 
     }
 }

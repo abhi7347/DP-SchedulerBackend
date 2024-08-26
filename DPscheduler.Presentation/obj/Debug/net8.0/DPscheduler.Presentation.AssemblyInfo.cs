@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DPscheduler.Presentation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0128cffaa071f41252a212713269df49966d9019")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1468d5b10d8fc6e0d9c5684b41867c470aee0c5f")]
 [assembly: System.Reflection.AssemblyProductAttribute("DPscheduler.Presentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DPscheduler.Presentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,8 +13,6 @@ namespace DPScheduler.DAL.Interface
         public Task<IEnumerable> GetAllLocations();
         public Task<IEnumerable<dynamic>> ProviderByLocations(string dayOfWeek, IEnumerable<int> locationIds);
         public Task<IEnumerable<dynamic>> ProvidersByToggelLocations(string dayOfWeek);
-        public Task<IEnumerable<dynamic>> GetBookedAppointments(DateTime selectedDate, IEnumerable<int> LocationIds);
-
     }
 }
                 

@@ -12,5 +12,7 @@ namespace DPScheduler.DAL.Interface
         public Task CreateEvent(EventDTO EventModel);
         public Task DeleteEvent(string EventModel);
         public Task UpdateEvent(EventDTO EventModel);
+        public Task<IEnumerable<dynamic>> GetBookedAppointments(DateTime selectedDate, IEnumerable<int> LocationIds);
+
     }
 }

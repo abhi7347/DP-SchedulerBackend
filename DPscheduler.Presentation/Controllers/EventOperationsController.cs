@@ -1,4 +1,5 @@
-﻿using DPScheduler.BAL.Interface;
+﻿using DPScheduler.BAL.Implementation;
+using DPScheduler.BAL.Interface;
 using DPScheduler.DAL.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,9 +27,6 @@ namespace DPscheduler.Presentation.Controllers
 
             try
             {
-                DateTime eventDateUtc = DateTime.SpecifyKind(EventModel.EventDate, DateTimeKind.Utc);
-
-                EventModel.EventDate = eventDateUtc;
 
                 await _eventServiceOps.CreateEvent(EventModel);
 
@@ -77,6 +75,31 @@ namespace DPscheduler.Presentation.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("bookedAppointments")]
+        public async Task<IActionResult> GetBookedAppointments([FromQuery] DateTime selectedDate, [FromQuery] IEnumerable<int> LocationIds)
+        {
+            try
+            {
+                if (selectedDate == default(DateTime) || LocationIds == null || !LocationIds.Any())
+                {
+                    return BadRequest("Invalid request parameters.");
+                }
+
+                var bookedAppointments = await _eventServiceOps.GetBookedAppointments(selectedDate, LocationIds);
+
+                if (bookedAppointments == null)
+                {
+                    return NotFound("No appointments found.");
+                }
+
+                return Ok(bookedAppointments);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing your request.");
             }
         }
 
