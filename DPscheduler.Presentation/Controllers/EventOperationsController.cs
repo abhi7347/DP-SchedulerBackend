@@ -12,9 +12,11 @@ namespace DPscheduler.Presentation.Controllers
     public class EventOperationsController : ControllerBase
     {
         private readonly IEventOperationsService _eventServiceOps;
-        public EventOperationsController(IEventOperationsService eventServiceOps)
+        private readonly ILogger _logger;
+        public EventOperationsController(IEventOperationsService eventServiceOps, ILogger<EventOperationsController> logger)
         {
             _eventServiceOps = eventServiceOps;
+            this._logger = logger;
         }
 
         [HttpPost("CreateEvent")]
@@ -30,10 +32,15 @@ namespace DPscheduler.Presentation.Controllers
 
                 await _eventServiceOps.CreateEvent(EventModel);
 
+                _logger.LogInformation("successfull while Creating an Event in controller.");
+
                 return Ok(new { message = "Event created successfully." });
+
             }
             catch (Exception ex)
             {
+                _logger.LogError("Error while Creating an Event to in controller");
+
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -50,10 +57,16 @@ namespace DPscheduler.Presentation.Controllers
             try
             {
                 await _eventServiceOps.DeleteEvent(eventId);
+
+                _logger.LogInformation($" Successfully Deleted {eventId} in controller");
+
                 return Ok(true);
+
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Error while Deleting Event {eventId} in controller");
+
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -70,10 +83,16 @@ namespace DPscheduler.Presentation.Controllers
             try
             {
                 await _eventServiceOps.UpdateEvent(eventModel);
+
+                _logger.LogInformation($" Successfully Updated the event to client");
+
                 return Ok( new { success = "Event updated successfully." });
+
             }
             catch (Exception ex)
             {
+                _logger.LogError($"An unexpected error occurred while updating the event to client: {ex}");
+
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -94,11 +113,13 @@ namespace DPscheduler.Presentation.Controllers
                 {
                     return NotFound("No appointments found.");
                 }
-
+                _logger.LogInformation($" Successfully Fetched the Booked Appointments to client");
                 return Ok(bookedAppointments);
             }
             catch (Exception ex)
             {
+                _logger.LogError($"An unexpected error occurred while fetching Booking Appointments to client : {ex}");
+
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }

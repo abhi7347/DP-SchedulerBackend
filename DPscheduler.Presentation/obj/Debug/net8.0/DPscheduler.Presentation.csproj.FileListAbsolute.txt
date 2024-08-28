@@ -71,3 +71,15 @@ D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\obj
 D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\obj\Debug\net8.0\DPscheduler.Presentation.genruntimeconfig.cache
 D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\obj\Debug\net8.0\ref\DPscheduler.Presentation.dll
 D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\obj\Debug\net8.0\DPscheduler.Presentation.sourcelink.json
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\Serilog.Sinks.File.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\bin\Debug\net8.0\System.Text.Json.dll
+D:\Abhishekt Tiwari\dotNet\DPscheduler.Presentation\DPscheduler.Presentation\obj\Debug\net8.0\DPscheduler.Presentation.MvcApplicationPartsAssemblyInfo.cs

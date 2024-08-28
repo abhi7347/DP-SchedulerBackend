@@ -12,15 +12,26 @@ namespace DPscheduler.Presentation.Controllers
     public class DPSchedulerContoller : ControllerBase
     {
         private readonly IService _service;
-        public DPSchedulerContoller(IService service)
+        private readonly ILogger _logger;
+        public DPSchedulerContoller(IService service, ILogger<DPSchedulerContoller> logger)
         {
             _service = service;
+            _logger = logger;
         }
         [HttpGet("locations")]
         public async Task<IActionResult> GetActionResult() {
-
-            var locations = await _service.GetAllLocations();
-            return Ok(locations);
+            try
+            {
+                var locations = await _service.GetAllLocations();
+                _logger.LogInformation("Locations retrieved successfully and returned to the client.");
+                return Ok(locations);
+            }
+            catch (Exception ex) 
+            {
+                _logger.LogError(ex, "An error occurred while fetching locations in the controller.");
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+           
         }
 
         [HttpGet("ProvidersByLocation")]
@@ -35,11 +46,16 @@ namespace DPscheduler.Presentation.Controllers
                 else
                 {
                     var providers = await _service.GetProvidersByLocations(request.DayOfWeek, request.LocationIds);
+
+                    _logger.LogInformation("Providers By Location and returned to the client.");
+
                     return Ok(providers);
                 }
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "An error occurred while fetching Providers By Location in the controller.");
+
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -55,11 +71,14 @@ namespace DPscheduler.Presentation.Controllers
                 {
                     return NotFound("No providers found for the given location.");
                 }
+                _logger.LogInformation("ProvidersInToggleLoacion and returned to the client.");
 
                 return Ok(providers);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "An error occurred while fetching ProvidersInToggleLoacion in the controller.");
+
                 return StatusCode(500, "Internal server error");
             }
         }

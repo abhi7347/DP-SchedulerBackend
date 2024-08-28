@@ -2,6 +2,7 @@
 using DPScheduler.DAL.DTOs;
 using DPScheduler.DAL.Interface;
 using DPScheduler.DAL.Model;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,38 +16,61 @@ namespace DPScheduler.DAL.Implementation
     public class Repository:IRepository
     {
         private readonly SchedulerDBContext _context;
+        private readonly ILogger _logger;
 
 
-        public Repository(SchedulerDBContext context)
+        public Repository(SchedulerDBContext context, ILogger<Repository> logger)
         {
             _context = context;
+            this._logger = logger;
         }
         public async Task<IEnumerable> GetAllLocations()
         {
-            var query = "SELECT * FROM DP_Locations";
-
-            using (var connection = _context.CreateConnection())
+            try
             {
-                // Use QueryAsync<dynamic> to return dynamic objects
-                var locations = await connection.QueryAsync(query);
-                return locations;
+                var query = "SELECT * FROM DP_Locations";
+                using (var connection = _context.CreateConnection())
+                {
+                    // Use QueryAsync<dynamic> to return dynamic objects
+                    var locations = await connection.QueryAsync(query);
+                    _logger.LogInformation("Successfully fetched locations from the database.");
+                    return locations;
+                }
             }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while fetching locations.");
+                throw;
+            }
+            
         }
 
 
         // Get Providers Based on Locations
         public async Task<IEnumerable<dynamic>> ProviderByLocations(string dayOfWeek, IEnumerable<int> locationIds)
         {
-            var query = "USP_DayPilot_Procedure";
-
-            var parameters = new DynamicParameters();
-            parameters.Add("@DayOfWeek", dayOfWeek);
-            parameters.Add("@LocationIds", string.Join(",", locationIds));
-
-
-            using (var connection = _context.CreateConnection())
+            
+            try
             {
-                return await connection.QueryAsync<dynamic>(query, parameters, commandType: CommandType.StoredProcedure);
+                var query = "USP_DayPilot_Procedure";
+
+                var parameters = new DynamicParameters();
+                parameters.Add("@DayOfWeek", dayOfWeek);
+                parameters.Add("@LocationIds", string.Join(",", locationIds));
+
+                using (var connection = _context.CreateConnection())
+                {
+                    var result =  await connection.QueryAsync<dynamic>(query, parameters, commandType: CommandType.StoredProcedure);
+                    _logger.LogInformation("Success Providers Based On Location");
+                    return result;
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while fetching Providers Based On Location");
+                throw;
             }
         }
 
@@ -69,15 +93,21 @@ namespace DPScheduler.DAL.Implementation
                 using (var connection = _context.CreateConnection())
                 {
                     var parameters = new { DayOfWeek = dayOfWeek };
-                    return await connection.QueryAsync<dynamic>(sql, parameters);
+                    var result = await connection.QueryAsync<dynamic>(sql, parameters);
+
+                    _logger.LogInformation("Successfully fetched providers based on location for day: {DayOfWeek}", dayOfWeek);
+
+                    return result;
                 }
             }
-            catch (Exception ex) { throw; }
-            
+
+            catch (Exception ex) 
+            {
+                _logger.LogError(ex, "An error occurred while fetching Providers for Toggel Locations");
+                throw;
+            }
                 
         }
-
-        
 
     }
 }

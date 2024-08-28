@@ -4,6 +4,7 @@ using DPScheduler.BAL.Interface;
 using DPScheduler.DAL.Implementation;
 using DPScheduler.DAL.Interface;
 using DPScheduler.DAL.Model;
+using Serilog;
 
 namespace DPscheduler.Presentation
 {
@@ -12,6 +13,12 @@ namespace DPscheduler.Presentation
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            Log.Logger = new LoggerConfiguration().MinimumLevel.Information()
+                    .WriteTo.File("Log/log.txt")
+                    .CreateLogger();
+
+            builder.Host.UseSerilog();
 
             // Add services to the container.
             builder.Services.AddCors(options =>
